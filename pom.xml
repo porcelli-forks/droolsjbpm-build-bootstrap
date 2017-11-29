@@ -96,6 +96,7 @@
     <version.org.freemarker>2.3.26.jbossorg-1</version.org.freemarker>
     <version.org.jboss.arquillian.extension.drone>2.0.0.Final</version.org.jboss.arquillian.extension.drone>
     <version.org.jboss.arquillian.graphene>2.1.0.CR1</version.org.jboss.arquillian.graphene>
+    <version.org.jboss.arquillian.bom>1.2.1.Final</version.org.jboss.arquillian.bom>
 
     <version.com.google.elemental2>1.0.0-beta-1</version.com.google.elemental2>
     <version.org.jboss.errai>4.2.1-SNAPSHOT</version.org.jboss.errai>
@@ -225,7 +226,7 @@
     <version.okhttp>3.8.1</version.okhttp>
     <version.zjsonpatch>0.3.0</version.zjsonpatch>
     <version.arquillian-cube>1.0.0.Alpha15</version.arquillian-cube>
-    <version.org.wildfly.arquillian.container>2.0.0.Final</version.org.wildfly.arquillian.container>
+    <version.org.wildfly.arquillian.container>2.1.0.Final</version.org.wildfly.arquillian.container>
     <!-- Using origin-repository.jboss.org as that is the canonical URL for deployment. repository.jboss.org is just a proxy
          which should delegate the calls to origin-repository.jboss.org, but that is often buggy. Using the canonical URL
          directly should help to avoid some of the issues with deploying artifacts. -->
@@ -251,7 +252,10 @@
     <version.javax.jws>1.0-MR1</version.javax.jws>
 
     <version.org.quartz-scheduler>2.2.3</version.org.quartz-scheduler>
-
+    <version.javax.ws.rs>2.0.1</version.javax.ws.rs>
+    <version.org.jboss.shrinkwrap.resolver>3.1.2</version.org.jboss.shrinkwrap.resolver>
+    <version.org.assertj>3.8.0</version.org.assertj>
+    <version.org.apache.maven.plugins.dependency>3.0.2</version.org.apache.maven.plugins.dependency>
   </properties>
 
   <repositories>
@@ -2538,6 +2542,59 @@
         <groupId>io.takari.maven.plugins</groupId>
         <artifactId>takari-plugin-testing</artifactId>
         <version>${version.io.takari.maven.plugins.integration-testing}</version>
+      </dependency>
+      <!-- Test incremental compiler -->
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${version.org.assertj}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>${version.org.apache.maven.plugins.dependency}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>${version.javax.ws.rs}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${version.org.jboss.arquillian.bom}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.shrinkwrap.resolver</groupId>
+        <artifactId>shrinkwrap-resolver-api-maven</artifactId>
+        <version>${version.org.jboss.shrinkwrap.resolver}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.shrinkwrap.resolver</groupId>
+        <artifactId>shrinkwrap-resolver-spi</artifactId>
+        <version>${version.org.jboss.shrinkwrap.resolver}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.shrinkwrap.resolver</groupId>
+        <artifactId>shrinkwrap-resolver-spi-maven-archive</artifactId>
+        <version>${version.org.jboss.shrinkwrap.resolver}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.errai</groupId>
+        <artifactId>errai-jboss-as-support</artifactId>
+        <version>${version.org.jboss.errai}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.errai</groupId>
+        <artifactId>errai-marshalling</artifactId>
+        <version>${version.org.jboss.errai}</version>
       </dependency>
 
       <!-- Narayana is used as transaction manager for KIE Server on Tomcat -->
